@@ -18,6 +18,7 @@ class IntegerPrimitivesTests {
 	}
 	@Test
 	void getLengthByte() {
+		System.out.println("Byte lenght: " + IntegerPrimitives.getLengthByte());
 		assertEquals(1, IntegerPrimitives.getLengthByte());
 	}
 	@Test
@@ -30,6 +31,7 @@ class IntegerPrimitivesTests {
 	}
 	@Test
 	void getLengthChar() {
+		System.out.println("Char lenght: " + IntegerPrimitives.getLengthChar());
 		assertEquals(2, IntegerPrimitives.getLengthChar());
 	}
 	@Test
@@ -42,6 +44,7 @@ class IntegerPrimitivesTests {
 	}
 	@Test
 	void getLengthShort() {
+		System.out.println("Short lenght: " + IntegerPrimitives.getLengthShort());
 		assertEquals(2, IntegerPrimitives.getLengthShort());
 	}
 	@Test
@@ -50,6 +53,7 @@ class IntegerPrimitivesTests {
 	}
 	@Test
 	void getMinInt() {
+		System.out.println("Int lenght: " + IntegerPrimitives.getLengthInt());
 		assertEquals(Integer.MIN_VALUE,IntegerPrimitives.getMinInt());
 	}
 	@Test
@@ -66,6 +70,7 @@ class IntegerPrimitivesTests {
 	}
 	@Test
 	void getLengthLong() {
+		System.out.println("Long lenght: " + IntegerPrimitives.getLengthLong());
 		assertEquals(8, IntegerPrimitives.getLengthLong());
 	}
 
