@@ -39,7 +39,7 @@ public class IntegerPrimitives {
 
 	public static int getLengthChar() {
 		int length = getLength(Character.MAX_VALUE+1);
-		System.out.println("Char calculated lenght: " + length);
+		//System.out.println("Char calculated lenght: " + length);
 		return length;
 	}
 
@@ -99,7 +99,7 @@ public class IntegerPrimitives {
 
 	public static int getLengthLong() {
 		int length = getLength(Long.MAX_VALUE);
-		System.out.println("Long calculated lenght: " + length);
+		//System.out.println("Long calculated lenght: " + length);
 		return length;
 	}
 	
