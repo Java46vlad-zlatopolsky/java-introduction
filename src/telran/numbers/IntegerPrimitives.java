@@ -104,75 +104,15 @@ public class IntegerPrimitives {
 	}
 	
 	
-
-	/**
-	 * 
-	 * @param x you should understand what x is
-	 * @return length of any type in accordance to the x length is number of bytes
-	 *         for any type
-	 */
-//	private static int getLength (long val){
-//		long mult = 1;
-//		int count = 0;
-//		int length = 0;
-//		while(mult <= val+1) {
-//			mult *=2;
-//			count++;
-//		}
-//		//System.out.println(count);
-//		switch (count) {
-//		case 8: length = 1; break;
-//		case 16: length = 2; break;
-//		case 32: length = 4; break;
-//		case 64: length = 8; break;
-//		default: return 0;
-//		}
-//		return length;
-//		}
-	
-	private static int getLength (long val){
-		
-		long N = val;
-		int result = (int)(Math.log(N) / Math.log(2));
-		//System.out.println("Logarithm base 2 of " + N + " is :" + result);
-		if (result >= 7 && result <= 8) {
-			result = 1;
+	private static int getLength (long x){
+		long value = 1;
+		int count = 1;
+		while (value < x && value > 0) {
+			value *= 2;
+			count ++;
 		}
-		else if (result >= 15 && result <= 16) {
-			result = 2;
-		}
-		else if (result >= 30 && result <= 32) {
-			result = 4;
-		}
-		else if (result >= 63 && result <= 64) {
-			result = 8;
-		}
-		return result;
-	
-	
+	return count / 8;
 	}
-	
-//	private static int getLength (long val){ //working with plaster
-//		long mult = 1;
-//		int count = 0;
-//		while(mult <= val && count <=64) {
-//			mult *=2;
-//			count++;
-//		}
-//		if (count > 7 && count <= 8) {
-//			count = 1;
-//		}
-//		else if (count >= 15 && count <= 17) {
-//			count = 2;
-//		}
-//		else if (count >= 30 && count <= 32) {
-//			count = 4;
-//		}
-//		else if (count >= 60 && count <= 65) {
-//			count = 8;
-//		}
-//		return count;
-//		}
-	
 
+	
 }
