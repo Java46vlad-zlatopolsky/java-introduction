@@ -2,7 +2,7 @@ package toBinaryStr_methods;
 
 public class Methods {
 
-	 public static String toBinaryStr(int number) {
+	 public static String toBinaryStr(int number) { 
 		
 	 String binary = "", reverse = "0";
 	 int res = 0;

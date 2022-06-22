@@ -6,6 +6,6 @@ public class mainToBinary {
 		
 		System.out.println(Methods.toBinaryStr(12));
 
-	} 
+	}  
 
 }

@@ -13,7 +13,7 @@ class ToBinaryTests {
 		String a = Methods.toBinaryStr(5);
 		String b = Methods.toBinaryStr(0);
 		assertEquals("101", a);
-		assertEquals("0", b); 
+		assertEquals("0", b);  
 	}
 
 }
