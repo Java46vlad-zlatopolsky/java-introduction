@@ -7,7 +7,7 @@ public class Methods {
 	 String binary = "", reverse = "0";
 	 int res = 0;
 		 if (number > 0 ) {
-		 for (int i = 0; number > 0 ; i++) {
+		 while ( number > 0 ) {
 			 res = number % 2;
 			 binary += res;
 			 number /= 2;
@@ -15,7 +15,7 @@ public class Methods {
 		 }
 		 
 		 reverse = new StringBuffer(binary).reverse().toString(); // reverting binary to return correct order of binary view
-		 }
+		 } 
 		 
 		 return reverse;
 		 
