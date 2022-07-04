@@ -7,7 +7,7 @@ public class Strings {
 	 * @param str1 - ASCII string with no repeated symbols
 	 * @param str2 - ASCII string with no repeated symbols
 	 * @return array with two numbers: first - number of the symbols of the str2
-	 *         that exist in str1 at same indexes second - number of the symbols of
+	 *         that exist in str1 at same indexes. second - number of the symbols of
 	 *         the str2 that exist in str1 at different indexes
 	 */
 	public static int[] deepNoRepeatedCompare(String str1, String str2) {
@@ -20,7 +20,58 @@ public class Strings {
 
 		// Second: O(n**2)
 		// implementation based on the method indexOf
-		return null;
+
+		// str1 = str1.toLowerCase();
+		// str2 = str2.toLowerCase();
+		int indexMatchedCharsCounter = 0;
+		int matchedCharsCounter = 0;
+		char symbol = '\0';
+		int[] asciiChars = new int[127];
+
+		for (int i = 0; i < str1.length() ; i++) {
+			symbol = str1.charAt(i);
+
+			boolean isCharMatched = checkCharMatching(symbol, str2, i);
+			if (isCharMatched == true) {
+				indexMatchedCharsCounter++;
+			} 
+
+			else {
+				int ascii = getCharAscii(symbol); 
+				asciiChars[ascii]++;
+			}
+		}
+
+		for (int i = 0; i < str2.length(); i++) { //was -1
+			char s = str2.charAt(i);
+			int ascii = getCharAscii(s);
+			asciiChars[ascii]++;
+		}
+
+		for (int i = 0; i < asciiChars.length; i++) {
+			if (asciiChars[i] == 2) {
+				matchedCharsCounter++;
+			}
+		}
+		int[] ar = { indexMatchedCharsCounter, matchedCharsCounter };
+		return ar;
+	}
+
+	private static int getCharAscii(char s) {
+		
+		int charAscii = s;
+		System.out.println(charAscii);
+		return charAscii;
+	}
+
+	private static boolean checkCharMatching(char s, String str2, int i) {
+		if (i < str2.length()) {
+				
+		if (s == str2.charAt(i)) {
+			return true;
+		}
+		}
+		return false;
 	}
 
 	/**
@@ -31,7 +82,7 @@ public class Strings {
 	 *         ALL letters from str1
 	 */
 	public static boolean isAnagram(String str1, String str2) {
-		// TODO
+
 		// additional helper array such that array['a'] is the number of 'a' occurrences
 		// in str1
 		// str1 = "hello", array['l'] = 2; array['w'] = 0;
@@ -41,11 +92,10 @@ public class Strings {
 		// boolean isSameLength = false;
 		boolean isAnagramFlag = true;
 		int count = 0;
-		char[] arCount1 = new char[256];
-		char[] arCount2 = new char[256];
+		char[] arCount1 = new char[127];
+		char[] arCount2 = new char[127];
 
 		if (str1.getBytes().length == str2.getBytes().length) {
-			
 
 			for (char index = 'a'; index <= 'z'; index++) {
 				for (int i = 0; i < str1.length(); i++) {
@@ -71,11 +121,9 @@ public class Strings {
 			}
 			return isAnagramFlag;
 
+		} else {
+			return false;
 		}
-		else {
-		return false;
-	}
-
 
 	}
 }

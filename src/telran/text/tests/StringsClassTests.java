@@ -8,7 +8,7 @@ import telran.text.Strings;
 
 class StringsClassTests {
 
-	//@Test
+	@Test
 	void deepComapreTest() {
 		String str1 = "123,tT89";
 		String str2 = "123,tT89";
