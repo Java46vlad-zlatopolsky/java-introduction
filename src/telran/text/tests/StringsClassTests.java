@@ -1,5 +1,6 @@
 package telran.text.tests;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -65,22 +66,71 @@ class StringsClassTests {
 		}
 		return res;
 	}
+	
 	@Test
 	void matchesTest() {
-		//TODO
-		//        Examples:
-//	        - David vs. david: match
-//	        - John F vs. John Fitzgerald: match
-//	        - John K vs. John Fitzgerald: no match
-//	        - Anna Maria Magdalena vs. Anna Magdalena: match
-//	        - Anna Maria Magdalena vs. Maria Magdalena: match
-//	        - Anna Maria Magdalena vs. Anna Maria Roberta: no match
-//	        - Anna Maria Magdalena vs. Anna Magdalena Roberta: no match
-//	        - Anna Maria Magdalena vs. Anna Magdalena Maria: no match
+		String expected1 = "match";
+		String expected2 = "match";
+		String expected3 = "no match";
+		String expected4 = "match";
+		String expected5 = "match";
+		String expected6 = "no match";
+		String expected7 = "no match";
+		String expected8 = "no match";
+		
+		String firstName1 = "David";
+		String compareName1 = "david";
+		
+		String firstName2 = "John F";
+		String compareName2 = "John Fitzgerald";
+		
+		String firstName3 = "John K";
+		String compareName3 = "John Fitzgerald";
+		
+		String firstName4 = "Anna Maria Magdalena";
+		String compareName4 = "Anna Magdalena";
+		
+		String firstName5 = "Anna Maria Magdalena";
+		String compareName5 = "Maria Magdalena";
+		
+		String firstName6 = "Anna Maria Magdalena";
+		String compareName6 = "Anna Maria Roberta";
+		
+		String firstName7 = "Anna Maria Magdalena";
+		String compareName7 = "Anna Magdalena Roberta";
+		
+		String firstName8 = "Anna Maria Magdalena";
+		String compareName8 = "Anna Magdalena Maria";
+	
+		assertEquals(expected1, Strings.matches(firstName1, compareName1));
+		assertEquals(expected2, Strings.matches(firstName2, compareName2));
+		assertEquals(expected3, Strings.matches(firstName3, compareName3));
+		assertEquals(expected4, Strings.matches(firstName4, compareName4));
+		assertEquals(expected5, Strings.matches(firstName5, compareName5));
+		assertEquals(expected6, Strings.matches(firstName6, compareName6));
+		assertEquals(expected7, Strings.matches(firstName7, compareName7));
+		assertEquals(expected8, Strings.matches(firstName8, compareName8));
+
 	}
+	
 	@Test
 	void sortStringsAsNumbersTest() {
-		//TODO
+		String [] ar1 = {"123", "55", "10", "785"};
+		String [] ar2 = {"123","123","0","800", "800", "800", "55", "10", "785"};
+		String [] ar3 = {"0"};
+		String [] ar4 = {"8888"};
+		String [] expected1 = {"10", "55", "123", "785"};
+		String [] expected2 = {"0", "10", "55", "123", "123","785", "800", "800", "800"};
+		String [] expected3 = {"0"};
+		String [] expected4 = null;
+		
+		assertArrayEquals(expected1, Strings.sortStringsAsNumbers(ar1));
+		assertArrayEquals(expected2, Strings.sortStringsAsNumbers(ar2));
+		assertArrayEquals(expected3, Strings.sortStringsAsNumbers(ar3));
+		assertArrayEquals(expected4, Strings.sortStringsAsNumbers(ar4));
 	}
 
 }
+
+
+

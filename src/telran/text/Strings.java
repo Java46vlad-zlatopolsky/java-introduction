@@ -1,5 +1,7 @@
 package telran.text;
 
+import org.hamcrest.core.StringStartsWith;
+
 public class Strings {
 /**
  * 
@@ -83,7 +85,7 @@ private static void fillHelperString1(String str1, int[] helper) {
 			return false;
 		}
 		int [] helper = new int[127];
-		fillHelperOccurrences(str1, helper);
+		fillHelperOccurrences(str1, helper); //fill lookup table
 		return isAnagram(str2, helper);
 		
 	}
@@ -107,9 +109,9 @@ private static void fillHelperString1(String str1, int[] helper) {
 	}
 	static public String join(String[] array, String delimiter) {
 		//STring "+" operator based solution
-		return stringPluseSolution(array, delimiter);
+		//return stringPluseSolution(array, delimiter);
 		//StringBuilder attend based solution
-		//return stringBuilderSolution(array, delimiter);
+		return stringBuilderSolution(array, delimiter);
 	}
 	static private String stringBuilderSolution(String[] array, String delimiter) {
 		StringBuilder strBuilder = new StringBuilder(array[0]);
@@ -132,15 +134,67 @@ private static void fillHelperString1(String str1, int[] helper) {
 	 * @return either "match" or "no match" in accordance to the comments (see TODO)
 	 */
 	static public String matches(String name1, String name2) {
-		//TODO
+		
 //      String matches(String name1, String name2)
 //      Names match under the following conditions, after breaking each one into "name parts" on whitespace :
 //      - Two name parts match if they are the same (case insensitive) or one is a single letter initial and the other is longer but starts with the same letter.
 //      - A name part in  the name1 may be missing from the name2
 //      - Name parts in one name must not contradict name parts in the other
 //      - Name parts that match must be in the same order in both names
-		return "no match";
-	}
+		
+
+		
+					
+		String[] name1sp  = name1.split(" ");	
+		String[] name2sp  = name2.split(" ");	
+		String res = null;
+		
+
+		boolean isMatch = true;
+		boolean remMatch = false;
+		
+		for (int i = 0, j = 0; i < name1sp.length  ; ) {
+			remMatch = isMatchCheck(name1sp[i], name2sp[j]);
+			if (remMatch) {
+				i++; 
+				j++;
+				isMatch = true;
+				
+			}
+			if (!remMatch) {
+				i++;
+				isMatch = false;
+			}
+			if (i == name1sp.length   && j != name2sp.length ) {
+				isMatch = false;
+			}
+		}
+		
+		
+
+		if (isMatch) {
+			res = "match";
+		}
+		else res = "no match";
+		
+		
+		return res;
+		
+ }
+	
+	static boolean isMatchCheck(String str1, String str2) {
+		
+		if(str1.equalsIgnoreCase(str2) || str1.startsWith(str2) || str2.startsWith(str1)){
+			return true;
+		}
+		else return false;
+	}	
+	
+	
+	
+	
+	
+	
 	/**
 	 * sorts array of strings
 	 * @param strNumbers array of strings containing the positive integer numbers
@@ -148,11 +202,38 @@ private static void fillHelperString1(String str1, int[] helper) {
 	 * String containing "123" should be greater than string containing "23" as the number 123 greater than
 	 * number 23
 	 */
-	static public void sortStringsAsNumbers(String[] strNumbers) {
-		//TODO
+	static public String[] sortStringsAsNumbers(String[] strNumbers) {
+		
 		//Algorithm complexity should be O[N]
 		//Implementation hint: additional helper array such that ar[10] - count of occurrences
 		//of number 10 in the given array
 		//find out how to get number from a string and how to convert number to string
+		
+		int index = 0;
+		int [] LookupTableAr = new int [1000];
+		String [] sortAr = new String [strNumbers.length];
+		
+		
+		
+		for (int i = 0; i < strNumbers.length ; i ++) {
+			if (Integer.parseInt(strNumbers[i]) > 999) {
+				return null;
+			}
+			LookupTableAr[Integer.parseInt(strNumbers[i])] += 1; 
+		}
+		
+		for (int i = 0 ; i < LookupTableAr.length ; i ++) {
+			String fill = String.valueOf(i);
+			if(LookupTableAr[i] > 0) {
+				do {
+					sortAr[index] = fill;
+					index++;
+					LookupTableAr[i]--;
+				}
+				while (LookupTableAr[i] > 0);
+			}
+		}
+		
+		return sortAr;
 	}
 }
