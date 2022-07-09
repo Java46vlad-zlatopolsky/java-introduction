@@ -110,7 +110,7 @@ class StringsClassTests {
 		assertEquals(expected6, Strings.matches(firstName6, compareName6));
 		assertEquals(expected7, Strings.matches(firstName7, compareName7));
 		assertEquals(expected8, Strings.matches(firstName8, compareName8));
-
+ 
 	}
 	
 	@Test
@@ -129,6 +129,9 @@ class StringsClassTests {
 		assertArrayEquals(expected3, Strings.sortStringsAsNumbers(ar3));
 		assertArrayEquals(expected4, Strings.sortStringsAsNumbers(ar4));
 	}
+	
+	
+	
 
 }
 
