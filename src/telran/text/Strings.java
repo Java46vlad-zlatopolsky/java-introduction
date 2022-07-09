@@ -1,4 +1,5 @@
 package telran.text;
+
 import static telran.text.RegularExpressions.*;
 import org.hamcrest.core.StringStartsWith;
 
@@ -234,9 +235,7 @@ public class Strings {
 
 		return sortAr;
 	}
-	
-	
-	
+
 	public static boolean isIPv4(String ipV4str) {
 
 		return ipV4str.matches(ipV4Regex());
@@ -255,16 +254,13 @@ public class Strings {
 
 		return expression.matches(arithmeticExpression());
 	}
-	
-	
-	
-	
+
 	/**
 	 * method remove parentheses from the expression
-	 * @param expression
-	 * returns string with no parentheses and no spaces
+	 * 
+	 * @param expression returns string with no parentheses and no spaces
 	 */
-	public static String removeSpacesAndParentheses(String expression) {
+	private static String removeSpacesAndParentheses(String expression) {
 
 		char[] checkMeArray = expression.toCharArray();
 		int countOfParenthesesAndSpaces = 0;
@@ -287,16 +283,14 @@ public class Strings {
 
 		return result;
 	}
-	
+
 	/**
 	 * 
 	 * @param expression
-	 * @return true if for each '(' exist ')'
-	 * examples: (ab)(dg(g)) - right
-	 * wrong: (ab))((cd)
-	 * 	 * 
+	 * @return true if for each '(' exist ')' examples: (ab)(dg(g)) - right wrong:
+	 *         (ab))((cd) *
 	 */
-	public static boolean checkParentheses(String expression) {
+	private static boolean checkParentheses(String expression) {
 
 		// Hint: each ( => ++ counter, each ) => -- counter. if counter < 0 something
 		// wrong and == false and break
@@ -317,9 +311,5 @@ public class Strings {
 
 		return true;
 	}
-	
-		
-	
-	
-	
+
 }

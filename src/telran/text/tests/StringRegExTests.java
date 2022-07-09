@@ -7,25 +7,25 @@ import org.junit.jupiter.api.Test;
 
 class StringRegExTests {
 
-//	@Test
-//	void javaVariableTrue() {
-//		
-//		assertTrue(isJavaVariable("__"));
-//		assertTrue(isJavaVariable("$"));
-//		assertTrue(isJavaVariable("$_"));
-//		assertTrue(isJavaVariable("abc"));
-//		assertTrue(isJavaVariable("abc100"));
-//		assertTrue(isJavaVariable("$2"));
-//		assertTrue(isJavaVariable("_2"));
-//	}
-//	
-//	@Test
-//	void javaVariableFalse() {
-//		assertFalse(isJavaVariable("2_"));
-//		assertFalse(isJavaVariable("_"));
-//		assertFalse(isJavaVariable("a 2"));
-//	}
-//	
+	@Test
+	void javaVariableTrue() {
+		
+		assertTrue(isJavaVariable("__"));
+		assertTrue(isJavaVariable("$"));
+		assertTrue(isJavaVariable("$_"));
+		assertTrue(isJavaVariable("abc"));
+		assertTrue(isJavaVariable("abc100"));
+		assertTrue(isJavaVariable("$2"));
+		assertTrue(isJavaVariable("_2"));
+	}
+	
+	@Test
+	void javaVariableFalse() {
+		assertFalse(isJavaVariable("2_"));
+		assertFalse(isJavaVariable("_"));
+		assertFalse(isJavaVariable("a 2"));
+	}
+	
 	@Test
 	void ipV4True() {
 		assertTrue(isIPv4("0.0.0.0"));
@@ -48,8 +48,8 @@ class StringRegExTests {
 	@Test
 	void isArithmeticExpressionTrue() {
 		assertTrue(isArithmeticExpression("a+b=10"));
-//		assertTrue(isArithmeticExpression("(a*2)/b = c"));
-//		assertTrue(isArithmeticExpression("(a * c)/b = c + 2 - (1 * 5)"));
+		assertTrue(isArithmeticExpression("(a*2)/b = c"));
+		assertTrue(isArithmeticExpression("(a * c)/b = c + 2 - (1 * 5)"));
 	}
 	
 	//@Test
@@ -59,15 +59,15 @@ class StringRegExTests {
 		assertFalse(isArithmeticExpression("a,b-c;d"));
 		assertFalse(isArithmeticExpression("a))bc!d@/*"));
 	}
-	//@Test
-	void isParCountWorks () {
-		assertTrue(checkParentheses("a*(a+b)"));
-		assertTrue(checkParentheses("a*)a+b("));
-		assertFalse(checkParentheses("a*)a+b)"));
-	}
+//	//@Test
+//	void isParCountWorks () {
+//		assertTrue(checkParentheses("a*(a+b)"));
+//		assertTrue(checkParentheses("a*)a+b("));
+//		assertFalse(checkParentheses("a*)a+b)"));
+//	}
 	
-	@Test
-	void wereParenthesesAndSpacesRemoved() {
-		assertEquals("a+2*2=x", removeSpacesAndParentheses("(a+2)* 2 = x"));
-	}
+//	@Test
+//	void wereParenthesesAndSpacesRemoved() {
+//		assertEquals("a+2*2=x", removeSpacesAndParentheses("(a+2)* 2 = x"));
+//	}
 }
